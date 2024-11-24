@@ -1,0 +1,18 @@
+
+local function fetchAndExecuteProtection()
+    local success, result = pcall(function()
+        return game:HttpGet('https://raw.githubusercontent.com/Jayfrr/ErazedProtect/refs/heads/main/ErazedProtect')
+    end)
+    
+    if success then
+        local executionSuccess, executionError = pcall(loadstring(result))
+        if not executionSuccess then
+            warn("Failed to execute protection script:", executionError)
+        end
+    else
+        warn("Failed to fetch protection script:", result)
+    end
+end
+
+
+fetchAndExecuteProtection()
